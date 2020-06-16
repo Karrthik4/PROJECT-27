@@ -1,10 +1,11 @@
 class Bob {
     constructor(x, y, radius) {
       var options = {
-           isStatic: true,
-           restitution: 0.05,
-           friction: 0.5,
-           density: 1.2
+         // frictionAir :0,
+          isStatic :false,
+          restitution :1,
+          friction :0.75,
+          density: 0.4
       }
       this.image = loadImage('bob.jpg');
       this.body = Bodies.circle(x, y, radius, options);
@@ -15,9 +16,7 @@ class Bob {
 
 display(){
      var pos =this.body.position;
-     var angle = this.body.angle;
      fill("#FF00FF");
-     rotate(angle);
      ellipseMode(CENTER);
      ellipse(pos.x, pos.y, this.radius);
    }
