@@ -17,25 +17,26 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 	 
-	 roof = new Roof(300,150,250,10);
+	 roof = new Roof(300,150,350,10);
 
-	 bobObject1 = new Bob(160,400,40);
-	 bobObject2 = new Bob(220,400,40);
-	 bobObject3 = new Bob(280,400,40);
-	 bobObject4 = new Bob(340,400,40);
-   bobObject5 = new Bob(400,400,40);
-   
-   rope1 = new Rope(bobObject1.body, roof.body, -120, 0);
-   rope2 = new Rope(bobObject2.body, roof.body, -60, 0);
+	 bobObject1 = new Bob(160,500,40);
+	 bobObject2 = new Bob(220,500,40);
+	 bobObject3 = new Bob(280,500,40);
+	 bobObject4 = new Bob(340,500,40);
+   bobObject5 = new Bob(400,500,40);
+
+   rope1 = new Rope(bobObject1.body, roof.body, -160, 0);
+   rope2 = new Rope(bobObject2.body, roof.body, -80, 0);
 	 rope3 = new Rope(bobObject3.body, roof.body, 0, 0);
-   rope4 = new Rope(bobObject4.body, roof.body, 60, 0);
-   rope5 = new Rope(bobObject5.body, roof.body, 120, 0);
+   rope4 = new Rope(bobObject4.body, roof.body, 80, 0);
+   rope5 = new Rope(bobObject5.body, roof.body, 160, 0);
 
    Engine.run(engine);
 }
 
 
 function draw() {
+  rectMode(CENTER);
   background("silver");
   Engine.update(engine);
 
@@ -59,6 +60,6 @@ function draw() {
 
 function keyPressed(){
   if(keyCode === UP_ARROW){
-    Matter.Body.applyforce(bobObject1.body,bobObject1.body.position,{x:-50,y:-60})
+    Matter.Body.applyForce(bobObject1.body,bobObject1.body.position,{x:-50,y:-60});
   }
 }
